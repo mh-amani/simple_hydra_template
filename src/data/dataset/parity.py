@@ -4,8 +4,9 @@ from datasets import Dataset
 import numpy as np
 
 class ParityDataset(Dataset):
-    def __init__(self, sequence_length: int):
+    def __init__(self, sequence_length: int, dataset_size: int = 2 ** 10):
         self.sequence_length = sequence_length
+        self.data_size = dataset_size  
 
     def generate_parity_sequence(self) -> Dict[str, Union[List[int], int]]:
         sequence = [random.randint(0, 1) for _ in range(self.sequence_length)]
@@ -37,7 +38,7 @@ class ParityDataset(Dataset):
 
 
     def __len__(self) -> int:
-        return 2 ** self.sequence_length
+        return self.data_size
 
 # Example usage:
 # dataset = ParityDataset(sequence_length=5)

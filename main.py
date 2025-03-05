@@ -35,7 +35,7 @@ def train(cfg: DictConfig) -> Tuple[Dict[str, Any], Dict[str, Any]]:
     """
 
     print(f"Instantiating datamodule <{cfg.data._target_}>")
-    datamodule = hydra.utils.instantiate(cfg.data, _recursive_=True)
+    datamodule = hydra.utils.instantiate(cfg.data, _recursive_=False)
 
     print(f"Instantiating model <{cfg.model._target_}>")
     model = hydra.utils.instantiate(cfg.model, _recursive_=False)

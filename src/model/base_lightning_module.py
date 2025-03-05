@@ -24,6 +24,7 @@ class BaseLightningModule(LightningModule):
         loss_fn = torch.nn.CrossEntropyLoss()
         # Permute logits for cross entropy: (batch_size, num_classes, sequence_length)
         loss = loss_fn(logits.permute(0, 2, 1), y)
+        self.log("loss", loss)
         return loss
 
     def configure_optimizers(self):
