@@ -1,0 +1,6 @@
+defaults:
+  - default
+  
+dataset:
+  _target_: src.data.dataset.parity.ParityDataset
+  sequence_length: 20

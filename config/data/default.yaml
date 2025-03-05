@@ -1,0 +1,3 @@
+_target_: src.data.base_datamodule.BaseDatamodule
+batch_size: 32
+num_workers: 4
